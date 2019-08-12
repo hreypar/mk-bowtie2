@@ -1,0 +1,11 @@
+#!/bin/bash
+##
+## DESCRIPTION:
+##	Script to print required mk targets to STDOUT.
+## USAGE:
+##	bin/mk-targets
+
+find -L data/ \
+	-name '*.fastq.gz' \
+| sed -r \
+	-e 's#^data/#results/#g'
