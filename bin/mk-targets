@@ -7,5 +7,6 @@
 
 find -L data/ \
 	-name '*.fastq.gz' \
-| sed -r \
-	-e 's#^data/#results/#g'
+| sed \
+	-e 's#.fastq.gz$#.sorted.bam#' \
+	-e 's#^data/#results/#'
