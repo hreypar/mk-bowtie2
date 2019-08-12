@@ -14,6 +14,13 @@
 results/%.sam:   data/%.fastq.gz
 	DIR="`dirname $target | sort -u`"
 	mkdir -p "$DIR"
+	bowtie2 --threads $BOWTIE2_THREADS \
+		-q \
+		--local \
+		-x $GENOME_INDEX_PATH \
+		2> $stem.out \
+		-U $prereq \
+		-S $target.build \
 	&& mv $target.build $target
 
 # Compress sam alignments
