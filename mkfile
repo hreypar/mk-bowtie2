@@ -9,6 +9,9 @@
 #
 # AUTHOR: HRG
 #
+# Source config
+< config.mk
+
 # Align reads to the reference genome using Bowtie2
 #
 results/%.sam:   data/%.fastq.gz
@@ -38,7 +41,7 @@ results/%.bam:	results/%.sam
 #
 results/%.sorted.bam:	results/%.bam
 	mkdir -p `dirname $target`
-	java -jar $PICARD_TOOLS_PATH/SortSam.jar \
+	java -jar $PICARD_TOOLS_PATH SortSam \
 		INPUT=$prereq \
 		OUTPUT=$target.build \
 		SORT_ORDER=coordinate \
