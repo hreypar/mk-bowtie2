@@ -21,7 +21,7 @@ results/%.sam:   data/%.fastq.gz
 		-q \
 		--local \
 		-x $GENOME_INDEX_PATH \
-		2> $stem.out \
+		2> results/$stem.out \
 		-U $prereq \
 		-S $target.build \
 	&& mv $target.build $target
