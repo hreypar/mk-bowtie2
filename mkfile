@@ -15,8 +15,7 @@
 # Align reads to the reference genome using Bowtie2
 #
 results/%.sam:   data/%.fastq.gz
-	DIR="`dirname $target | sort -u`"
-	mkdir -p "$DIR"
+	mkdir -p `dirname $target`
 	bowtie2 --threads $BOWTIE2_THREADS \
 		2> results/$stem.out \
 		-q \
@@ -42,9 +41,9 @@ results/%.bam:	results/%.sam
 results/%.sorted.bam:	results/%.bam
 	mkdir -p `dirname $target`
 	java -jar $PICARD_TOOLS_PATH SortSam \
-		-INPUT $prereq \
-		-OUTPUT $target.build \
-		-SORT_ORDER coordinate \
+		INPUT=prereq \
+		OUTPUT=target.build \
+		SORT_ORDER=coordinate \
 	&& mv $target.build $target
 
 # Clean intermediate files
