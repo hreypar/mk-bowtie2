@@ -4,7 +4,7 @@
 BOWTIE2_THREADS="2"
 
 # path to genome index files 
-GENOME_INDEX_PATH="/opt/reference-genomes/Rattus_norvegicus/NCBI/Rnor_6.0/Sequence/Bowtie2Index/"
+GENOME_INDEX_PATH="Bowtie2Index/Rnor6"
 
 # path to picard tools jar file
 PICARD_TOOLS_PATH="/opt/picard.jar"
