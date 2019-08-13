@@ -1,7 +1,7 @@
 # Variables that should actually be environment vars.
 #
 # bowtie threads
-BOWTIE2_THREADS="2"
+BOWTIE2_THREADS="6"
 
 # path to genome index files
 # I used a symlink at this file level
